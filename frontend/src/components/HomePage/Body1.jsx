@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../../assets/homepageillustration.png";
+import logo from "../../assets/homepageIllustration.png";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { GiPaperWindmill } from "react-icons/gi";
 
