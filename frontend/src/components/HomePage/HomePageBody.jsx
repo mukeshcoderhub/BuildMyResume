@@ -1,8 +1,8 @@
 import React from 'react'
-import Body1 from './Body1'
-import Body2 from './Body2'
-import Body3 from './Body3'
-import Footer from './Footer'
+import Body1 from './Body1.jsx'
+import Body2 from './Body2.jsx'
+import Body3 from './Body3.jsx'
+import Footer from './Footer.jsx'
 
 const HomePageBody = () => {
   return (
