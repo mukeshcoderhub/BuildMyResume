@@ -14,14 +14,14 @@ const Body1 = () => {
           <div className="flex w-full justify-center items-center">
             <p className="flex items-center text-black text-2xl font-semibold gap-2 cursor-default">
               <span>
-                <GiPaperWindmill className="text-green-500" />
+                <GiPaperWindmill className="text-[#ec4952]" />
               </span>
               BuildMyResume
             </p>
           </div>
           <div className="heading text-3xl font-bold  text-center mt-4 mb-8">
             <p>
-              Land Your <span className="text-green-500">Dream Job</span> With a
+              Land Your <span className="text-[#ec4952]">Dream Job</span> With a
               Stunning Resume
             </p>
           </div>
@@ -32,7 +32,7 @@ const Body1 = () => {
             </p>
           </div>
           <div className="flex justify-center items-center my-12">
-            <button className="animate-bounce flex items-center gap-2 cursor-pointer bg-green-500 text-white px-6 py-1.5 rounded-full active:bg-white active:text-black active:border-2 active:border-green-500 hover:bg-white hover:text-black hover:border-2 hover:border-green-500">
+            <button className="animate-bounce flex items-center gap-2 cursor-pointer bg-[#ec4952] text-white px-6 py-1.5 rounded-full active:bg-white active:text-black active:border-2 active:border-[#ec4952] hover:bg-white hover:text-black hover:border-2 hover:border-[#ec4952]">
               <IoNewspaperSharp />
               Create Resume Now
             </button>

@@ -6,7 +6,7 @@ import Footer from './Footer.jsx'
 
 const HomePageBody = () => {
   return (
-      <div className='w-full '>
+      <div className='w-full min-h-screen'>
       <Body1 />
       <Body3/>
       <Body2 />
