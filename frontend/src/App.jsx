@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import Home from './pages/Home.jsx'
 import {Routes, Route } from "react-router-dom";
-import Templates from './pages/Templates.jsx';
 import PageNotFound from './pages/PageNotFound.jsx';
-import Footer from './components/HomePage/Footer.jsx';
+import ResumeForm from './pages/ResumeForm.jsx';
 
 function App() {
 
@@ -11,7 +10,7 @@ function App() {
     <div className='w-full h-full'>
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Templates' element={<Templates />} />
+        <Route path='/ResumeForm' element={<ResumeForm />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </div>

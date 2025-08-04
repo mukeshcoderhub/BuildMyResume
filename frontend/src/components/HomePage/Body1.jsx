@@ -2,8 +2,10 @@ import React from "react";
 import logo from "../../assets/homepageIllustration.png";
 import { IoNewspaperSharp } from "react-icons/io5";
 import { GiPaperWindmill } from "react-icons/gi";
+import { useNavigate } from "react-router-dom";
 
 const Body1 = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full h-[90vh] sm:flex">
       <div className="left w-[100%] sm:w-[50%] h-[40%] sm:h-full flex justify-center items-center">
@@ -32,7 +34,7 @@ const Body1 = () => {
             </p>
           </div>
           <div className="flex justify-center items-center my-12">
-            <button className="animate-bounce flex items-center gap-2 cursor-pointer bg-[#ec4952] text-white px-6 py-1.5 rounded-full active:bg-white active:text-black active:border-2 active:border-[#ec4952] hover:bg-white hover:text-black hover:border-2 hover:border-[#ec4952]">
+            <button onClick={() => navigate("/ResumeForm")} className="animate-bounce flex items-center gap-2 cursor-pointer bg-[#ec4952] text-white px-6 py-1.5 rounded-full active:bg-white active:text-black active:border-2 active:border-[#ec4952] hover:bg-white hover:text-black hover:border-2 hover:border-[#ec4952]">
               <IoNewspaperSharp />
               Create Resume Now
             </button>

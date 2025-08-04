@@ -4,3 +4,19 @@
 *{
     font-family: "Roboto", sans-serif;
 }
+
+.loader {
+  border-radius: 9999px;
+  border-width: 2px;
+  border-style: solid;
+  width: 1rem;
+  height: 1rem;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
