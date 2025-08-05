@@ -29,7 +29,7 @@ const generateHTML = (data) => {
     }
     .resume-wrapper {
       width: 210mm;
-      min-height:100%,
+      min-height:100%;
       display: table;
       table-layout: fixed;
     }
@@ -40,7 +40,7 @@ const generateHTML = (data) => {
       display: table-cell;
       vertical-align: top;
       padding: 20px;
-      min-height:100%,
+      min-height:100%;
     }
     .right-panel {
       width: 70%;
@@ -48,7 +48,7 @@ const generateHTML = (data) => {
       display: table-cell;
       vertical-align: top;
       padding: 40px;
-      min-height:100%,
+      min-height:100%;
     }
     .section { margin-bottom: 30px; }
     .section h2 {
