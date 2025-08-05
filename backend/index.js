@@ -29,42 +29,42 @@ const generateHTML = (data) => {
     }
     .resume-wrapper {
       width: 210mm;
-      height: 371mm;
+      height: 297mm;
       display: table;
       table-layout: fixed;
     }
     .left-panel {
-      width: 40%;
+      width: 30%;
       background-color: ${data.themeColor};
       color: white;
       display: table-cell;
       vertical-align: top;
       padding: 20px;
-       height: 371mm;
+       height: 297mm;
     }
     .right-panel {
-      width: 60%;
+      width: 70%;
       background-color: white;
       display: table-cell;
       vertical-align: top;
       padding: 40px;
-       height: 371mm;
+       height: 297mm;
     }
     .section { margin-bottom: 30px; }
     .section h2 {
-      font-size: 25px;
+      font-size: 20px;
       margin-bottom: 10px;
       border-bottom: 1px solid #ccc;
       padding-bottom: 4px;
     }
     .section p, .section li {
-      font-size: 17px;
+      font-size: 13px;
       line-height: 1.5;
       margin: 0 0 6px;
     }
     ul { padding-left: 20px; margin: 0; }
-    h1 { font-size: 40px; margin: 0; color:white;  background-color: ${data.themeColor};border-radius:20px;padding:10px }
-    h3 { font-size: 19px; font-weight: 400; color: #666; margin-top: 6px; }
+    h1 { font-size: 28px; margin: 0; color:white;  background-color: ${data.themeColor};border-radius:20px;padding:10px }
+    h3 { font-size: 14px; font-weight: 400; color: #666; margin-top: 6px; }
   </style>
 </head>
 <body>
@@ -126,15 +126,80 @@ app.post('/generate-pdf', async (req, res) => {
     });
 
     const mailOptions = {
-      from: process.env.EMAIL_USER,
-      to: data.email,
-      subject: 'Your Resume PDF',
-      text: 'Find attached your generated resume PDF.',
-      attachments: [{
-        filename: 'resume.pdf',
-        path: result.filename
-      }]
-    };
+  from: process.env.EMAIL_USER,
+  to: data.email,
+  subject: 'Your Resume PDF is Ready!',
+  html: `
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>Your Resume</title>
+      <style>
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+        }
+        .container {
+          max-width: 600px;
+          background-color: #ffffff;
+          margin: 40px auto;
+          padding: 30px;
+          border-radius: 10px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+          color: #333333;
+        }
+        p {
+          color: #555555;
+          line-height: 1.6;
+        }
+        .btn {
+          display: inline-block;
+          padding: 12px 20px;
+          margin-top: 20px;
+          background-color: #007BFF;
+          color: #ffffff;
+          text-decoration: none;
+          border-radius: 5px;
+          font-weight: bold;
+        }
+        .footer {
+          text-align: center;
+          font-size: 13px;
+          color: #888;
+          margin-top: 30px;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h2>Hello ${data.name || "there"},</h2>
+        <p>
+          Thank you for using our resume builder. Your resume has been generated successfully and is attached to this email as a PDF file.
+        </p>
+        <p style="margin-top: 30px;">
+          If you need any changes or want to generate a new one, feel free to visit our website again.
+        </p>
+        <div class="footer">
+          &copy; ${new Date().getFullYear()} MukeshCoderHub | All rights reserved.
+        </div>
+      </div>
+    </body>
+    </html>
+  `,
+  attachments: [
+    {
+      filename: 'resume.pdf',
+      path: result.filename
+    }
+  ]
+};
+
 
     transporter.sendMail(mailOptions, (error, info) => {
       if (error) {
@@ -147,6 +212,6 @@ app.post('/generate-pdf', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on ${PORT}`);
 });
 
