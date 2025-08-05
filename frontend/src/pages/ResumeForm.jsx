@@ -43,7 +43,7 @@ const ResumeForm = () => {
 
     setIsLoading(true);
     try {
-      await axios.post('http://localhost:5000/generate-pdf', formData);
+      await axios.post('https://buildmyresume-1.onrender.com/generate-pdf', formData);
       toast.success('✅ Resume PDF sent to your email!');
     } catch (err) {
       console.error(err);
