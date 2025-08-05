@@ -29,7 +29,7 @@ const generateHTML = (data) => {
     }
     .resume-wrapper {
       width: 210mm;
-      height: 297mm;
+      min-height:100%,
       display: table;
       table-layout: fixed;
     }
@@ -40,7 +40,7 @@ const generateHTML = (data) => {
       display: table-cell;
       vertical-align: top;
       padding: 20px;
-       height: 297mm;
+      min-height:100%,
     }
     .right-panel {
       width: 70%;
@@ -48,7 +48,7 @@ const generateHTML = (data) => {
       display: table-cell;
       vertical-align: top;
       padding: 40px;
-       height: 297mm;
+      min-height:100%,
     }
     .section { margin-bottom: 30px; }
     .section h2 {
@@ -109,9 +109,7 @@ app.post('/generate-pdf', async (req, res) => {
   const data = req.body;
   const htmlContent = generateHTML(data);
 
-  const options = { height: '297mm',
-  width: '210mm',
-  border: '0mm' };
+  const options = { format: 'A4' };
 
   pdf.create(htmlContent, options).toFile('resume.pdf', async (err, result) => {
     if (err) return res.status(500).send('Error creating PDF');
